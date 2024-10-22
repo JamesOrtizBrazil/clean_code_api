@@ -7,7 +7,7 @@ export default [
         "rules": {
             "@typescript-eslint/strict-boolean-expressions": "off",
         },
-        ignores: ['node_modules/**', 'dist/**', 'coverage/**'],
+        ignores: ['node_modules/**', 'dist/**', 'coverage/**', 'data/**', '.vscode/**'],
     },
 ];
 
