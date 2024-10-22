@@ -15,5 +15,4 @@ export const adaptRoute = (controller: Controller) => {
             })
         }
     }
-    console.log('controller', controller)
 }
