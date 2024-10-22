@@ -14,6 +14,5 @@ export const adaptRoute = (controller: Controller) => {
                 error: httpResponse.body.message
             })
         }
-        console.log(httpResponse)
     }
 }
