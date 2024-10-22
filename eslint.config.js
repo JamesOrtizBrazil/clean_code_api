@@ -2,7 +2,7 @@ export default [
     {
         extends: 'standard-with-typescript',
         parserOptions: {
-            "project": "./tsconfig.json"
+            "project": "./tsconfig.eslint.json"
         },
         "rules": {
             "@typescript-eslint/strict-boolean-expressions": "off",
