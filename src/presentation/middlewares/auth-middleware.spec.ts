@@ -3,9 +3,11 @@ import { AccessDeniedError } from '../errors'
 import { AuthMiddleware } from './auth-middleware'
 
 describe('Auth Middleware', () => {
-    test('Should return 403 if no headers are found', async () => {
+    test('Should return 403 if no x-access-token exists in headers', async () => {
         const sut = new AuthMiddleware()
-        const httpResponse = await sut.handle({})
+        const httpResponse = await sut.handle({
+            headers: {}
+        })
         expect(httpResponse).toEqual(forbidden(new AccessDeniedError()))
     })
 })
