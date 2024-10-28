@@ -2,12 +2,13 @@ import { Collection, ObjectId } from 'mongodb';
 import { MongoHelper } from '../helpers/mongo-helper';
 import { AccountMongoRepository } from './account-mongo-repository';
 import { AccountModel } from '../../../../domain/models/account';
+import env from '../../../../main/config/env';
 
 let accountCollection: Collection;
 
 describe('Account MongoDB Repository', () => {
     beforeAll(async () => {
-        await MongoHelper.connect(process.env.MONGO_URL);
+        await MongoHelper.connect(env.mongoUrl);
     });
 
     afterAll(async () => {

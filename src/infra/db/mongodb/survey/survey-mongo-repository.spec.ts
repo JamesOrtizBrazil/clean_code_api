@@ -1,12 +1,13 @@
 import { Collection, ObjectId } from 'mongodb';
 import { MongoHelper } from '../helpers/mongo-helper';
 import { SurveyMongoRepository } from './survey-mongo-repository';
+import env from '../../../../main/config/env';
 
 let surveyCollection: Collection;
 
 describe('Survey MongoDB Repository', () => {
     beforeAll(async () => {
-        await MongoHelper.connect(process.env.MONGO_URL);
+        await MongoHelper.connect(env.mongoUrl);
     });
 
     afterAll(async () => {
