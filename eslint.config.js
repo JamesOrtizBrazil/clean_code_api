@@ -1,13 +1,16 @@
-module.exports = [
+import loveConfig from 'eslint-config-love';
+
+export default [
     {
-        extends: 'standard-with-typescript',
-        parserOptions: {
-            "project": "./tsconfig.eslint.json"
+        ...loveConfig,
+        languageOptions: {
+            parserOptions: {
+                project: './tsconfig.eslint.json',
+            },
         },
-        "rules": {
-            "@typescript-eslint/strict-boolean-expressions": "off",
+        rules: {
+            '@typescript-eslint/strict-boolean-expressions': 'off',
         },
         ignores: ['node_modules/**', 'dist/**', 'coverage/**', './data/**', '.vscode/**'],
     },
 ];
-
