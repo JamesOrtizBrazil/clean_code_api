@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/JamesOrtizBrazil/clean_code_api/badge.svg?branch=main)](https://coveralls.io/github/JamesOrtizBrazil/clean_code_api?branch=main)
+
 # **Clean Node API**
 
 Essa API faz parte do treinamento do professor Rodrigo Manguinho (Mango) na Udemy.
