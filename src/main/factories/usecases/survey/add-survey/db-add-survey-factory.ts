@@ -3,6 +3,6 @@ import { SurveyMongoRepository } from '../../../../../infra/db/mongodb/survey/su
 import { DbAddSurvey } from '../../../../../data/usecases/db-add-survey'
 
 export const makeDbAddSurvey = (): AddSurvey => {
-    const surveyMongoRepository = new SurveyMongoRepository()
-    return new DbAddSurvey(surveyMongoRepository)
+  const surveyMongoRepository = new SurveyMongoRepository()
+  return new DbAddSurvey(surveyMongoRepository)
 }

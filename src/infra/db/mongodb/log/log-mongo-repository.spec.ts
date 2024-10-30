@@ -1,32 +1,32 @@
-import { Collection } from "mongodb";
-import { MongoHelper } from "../helpers/mongo-helper";
-import { LogMongoRepository } from "./log-mongo-repository";
-import env from "../../../../main/config/env";
+import { Collection } from 'mongodb'
+import { MongoHelper } from '../helpers/mongo-helper'
+import { LogMongoRepository } from './log-mongo-repository'
+import env from '../../../../main/config/env'
 
 const makeSut = (): LogMongoRepository => {
-    return new LogMongoRepository();
+  return new LogMongoRepository()
 }
 
 describe('Log MongoDB Repository', () => {
-    let errorCollection: Collection
+  let errorCollection: Collection
 
-    beforeAll(async () => {
-        await MongoHelper.connect(env.mongoUrl);
-    });
+  beforeAll(async () => {
+    await MongoHelper.connect(env.mongoUrl)
+  })
 
-    afterAll(async () => {
-        await MongoHelper.disconnect();
-    });
+  afterAll(async () => {
+    await MongoHelper.disconnect()
+  })
 
-    beforeEach(async () => {
-        errorCollection = await MongoHelper.getCollection('errors');
-        await errorCollection.deleteMany({});
-    });
+  beforeEach(async () => {
+    errorCollection = await MongoHelper.getCollection('errors')
+    await errorCollection.deleteMany({})
+  })
 
-    test('Should create an error log on success', async () => {
-        const sut = makeSut();
-        await sut.logError('any_error');
-        const count = await errorCollection.countDocuments();
-        expect(count).toBe(1);
-    });
+  test('Should create an error log on success', async () => {
+    const sut = makeSut()
+    await sut.logError('any_error')
+    const count = await errorCollection.countDocuments()
+    expect(count).toBe(1)
+  })
 })
