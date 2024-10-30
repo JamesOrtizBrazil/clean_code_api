@@ -1,3 +1,4 @@
+[![Build Status](https://app.travis-ci.com/JamesOrtizBrazil/clean_code_api.svg?token=pA1od2eKpXFTyu8Brhd8&amp;branch=main&amp;status=passed)](https://app.travis-ci.com/JamesOrtizBrazil/clean_code_api)
 [![Coverage Status](https://coveralls.io/repos/github/JamesOrtizBrazil/clean_code_api/badge.svg?branch=main)](https://coveralls.io/github/JamesOrtizBrazil/clean_code_api?branch=main)
 
 # **Clean Node API**
