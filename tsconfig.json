@@ -5,13 +5,15 @@
     "target": "es2019",
     "esModuleInterop": true,
     "sourceMap": true,
-    "rootDirs": ["src", "tests"],
-    "baseUrl": "src",
-    "paths": {
-      "@/tests/*": ["../tests/*"],
-      "@/*": ["*"]
-    }
+    "rootDirs": [
+      "src"
+    ],
   },
-  "include": ["src", "tests"],
-  "exclude": []
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
 }
