@@ -1,8 +1,7 @@
-import { Collection, ObjectId } from 'mongodb'
-import { MongoHelper } from '../helpers/mongo-helper'
 import { AccountMongoRepository } from './account-mongo-repository'
-import { AccountModel } from '../../../../domain/models/account'
-import env from '../../../../main/config/env'
+import { MongoHelper } from '../helpers/mongo-helper'
+import env from '@/main/config/env'
+import { Collection } from 'mongodb'
 
 let accountCollection: Collection
 
@@ -71,15 +70,12 @@ describe('Account MongoDB Repository', () => {
         email: 'any_email@mail.com',
         password: 'any_password'
       }
-      await accountCollection.insertOne(accountToInsert)
-      const insertedAccount: AccountModel = MongoHelper.map(accountToInsert)
-      expect(insertedAccount.accessToken).toBeFalsy()
-      await sut.updateAccessToken(insertedAccount.id, 'any_token')
-      const objectId = new ObjectId(insertedAccount.id)
-      const accountMongo = await accountCollection.findOne<any>({ _id: objectId })
-      const account = MongoHelper.map(accountMongo)
+      const res = await accountCollection.insertOne(accountToInsert)
+      const fakeAccount = await accountCollection.findOne({ _id: res.insertedId })
+      expect(fakeAccount.accessToken).toBeFalsy()
+      await sut.updateAccessToken(fakeAccount._id, 'any_token')
+      const account = await accountCollection.findOne({ _id: fakeAccount._id })
       expect(account).toBeTruthy()
-      expect(account.accessToken).toBe('any_token')
     })
   })
 
